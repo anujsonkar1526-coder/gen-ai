@@ -226,21 +226,30 @@ python3 -m pytest tests/ -v
 
 ## 🖼️ UI Screenshots
 
-### 1. Main Chat Interface & Grounded Citations
-*(Add screenshot below after launching the app)*
-```markdown
-![Orient BlackSwan History Bot - Main Chat UI](assets/screenshots/chat_interface.png)
-```
+### 1. Document-Grounded Answer with Verified Citations
+Query: *"On what date were the prices in this catalogue last updated?"*
+- Confirms factual answering strictly grounded in the document (**Page 3 PDF, printed page 2**).
+- Verifies exact verbatim quote: *"Prices updated on 20-01-2025. These prices are subject to change without notice."*
+- Displays interactive retrieved source cards with page references and document status.
 
-### 2. Verified Page Citations & Excerpt Card
-```markdown
-![Verified Source Citations](assets/screenshots/citation_drawer.png)
-```
+![Document Grounded Answer and Verified Citations](assets/screenshots/grounded_answer_and_citations.png)
 
-### 3. Strict 'Not found' Evidence Guardrail
-```markdown
-![Strict Not Found Banner](assets/screenshots/not_found_guardrail.png)
-```
+---
+
+### 2. Strict 'Not found' Evidence Guardrail (Negative Test)
+Query: *"What is the price of a Physics textbook?"*
+- Confirms the model outputs **`Not found`** when evidence is absent from the History publication catalogue.
+- Demonstrates zero outside hallucination: strictly refuses to extrapolate or invent information.
+- Displays the dedicated guardrail notification confirming that the document contains no matching evidence.
+
+![Strict Not Found Guardrail](assets/screenshots/strict_not_found_guardrail.png)
+
+---
+
+### 3. Source Evidence Verification Check
+Detailed inspection view showing source checking and negative evidence verification:
+
+![Source Check Inspection](assets/screenshots/not_found_source_check.png)
 
 ---
 
